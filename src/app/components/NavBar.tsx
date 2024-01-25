@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function NavBar(): ReactElement {
   return (
     <main>
-      <section className="flex flex-row p-[10px] bg-[#2B303A] text-white">
+      <section className="flex flex-row py-[10px] px-[20px] bg-[#2B303A] text-white">
         <div className="w-[20%] text-4xl font-bold">
           <Link href="/">eimantas.codes</Link>
         </div>

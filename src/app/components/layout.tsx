@@ -22,7 +22,9 @@ export default function Layout({
     <>
       <main className={inter.className + ' h-svh'}>
         <NavBar />
+        <section className='p-[50px]'>
         {children}
+        </section>
       </main>
     </>
   );

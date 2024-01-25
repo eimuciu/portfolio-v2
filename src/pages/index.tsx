@@ -4,7 +4,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <Layout>
-      <main className="h-[70%] w-[40%] m-auto flex flex-col items-center justify-center">
+      <main className="h-[50vh] w-[40%] m-auto flex flex-col items-center justify-center">
         <section className="font-bold text-8xl">Welcome!</section>
         <section className="text-[#A50104] text-2xl mt-[20px]">
           I am a website developer
