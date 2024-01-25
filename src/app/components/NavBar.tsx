@@ -6,7 +6,7 @@ export default function NavBar(): ReactElement {
     <main>
       <section className="flex flex-row py-[10px] px-[20px] bg-[#2B303A] text-white">
         <div className="w-[20%] text-4xl font-bold">
-          <Link href="/">eimantas.codes</Link>
+          <Link href="/">eimis.codes</Link>
         </div>
         <div className="w-[60%] flex justify-center items-center text-xl">
           <Link className="mx-[15px]" href="/">
