@@ -22,7 +22,7 @@ export default function Layout({
     <>
       <main className={inter.className + ' h-svh'}>
         <NavBar />
-        <section className='p-[50px]'>
+        <section className='py-[50px] w-[85%] m-auto'>
         {children}
         </section>
       </main>
