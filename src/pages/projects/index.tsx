@@ -58,16 +58,18 @@ export default function Projects() {
               Source code
             </Link>
           </div>
-          <div className="flex items-center text-[#2B303A] text-xl">
-            <BsGlobe className="w-[20px] h-[20px] me-[10px]" />
-            <Link
-              href={`${projectList[activeProject.position].liveVersion}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Live version
-            </Link>
-          </div>
+          {projectList[activeProject.position].liveVersion && (
+            <div className="flex items-center text-[#2B303A] text-xl">
+              <BsGlobe className="w-[17px] h-[17px] me-[12px]" />
+              <Link
+                href={`${projectList[activeProject.position].liveVersion}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Live version
+              </Link>
+            </div>
+          )}
         </section>
       </main>
     </Layout>
