@@ -1,12 +1,16 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
 import './globals.css';
+import favicon from './favicon.png';
 
 const inter = JetBrains_Mono({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Eimantas Danielevicius',
   description: 'Eimantas Danielevicius Portfolio Website Version 2.0',
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({
