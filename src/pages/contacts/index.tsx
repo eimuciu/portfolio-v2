@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import Layout from '@/app/components/layout';
 import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { sendEmail } from './emailService';
+import Loader from './loader';
+import { Modal } from './modal';
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -14,6 +18,10 @@ const schema = Yup.object().shape({
 });
 
 export default function Contacts() {
+  const [loading, setLoading] = useState(false);
+  const [displayModal, setDisplayModal] = useState(false);
+  const [modalMsg, setModalMsg] = useState('');
+
   const formik = useFormik({
     initialValues: {
       name: '',
@@ -21,8 +29,30 @@ export default function Contacts() {
       message: '',
     },
     validationSchema: schema,
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: (values, { setSubmitting, resetForm }) => {
+      setLoading(true);
+      sendEmail(values)
+        .then(() => {
+          setLoading(false);
+          setModalMsg('Message sent!');
+          setDisplayModal(true);
+          setSubmitting(false);
+          resetForm();
+          setTimeout(() => {
+            setDisplayModal(false);
+            setModalMsg('');
+          }, 2000);
+        })
+        .catch(() => {
+          setLoading(false);
+          setModalMsg('Something went wrong!');
+          setDisplayModal(true);
+          setSubmitting(false);
+          setTimeout(() => {
+            setDisplayModal(false);
+            setModalMsg('');
+          }, 2000);
+        });
     },
   });
 
@@ -30,7 +60,6 @@ export default function Contacts() {
     <Layout>
       <main>
         <section className="font-bold text-5xl mb-[30px]">Contact me</section>
-
         <div className="text-xl flex items-center mb-[5px]">
           <FaPhoneAlt className="inline-block me-[10px]" /> +370 607 28695
         </div>
@@ -41,7 +70,6 @@ export default function Contacts() {
         <div className="text-xl flex items-center mb-[5px]">
           <FaMapMarkerAlt className="inline-block me-[10px]" /> Kaunas
         </div>
-
         <section className="mt-[30px]">
           <form id="form1" onSubmit={formik.handleSubmit}>
             <div className="mb-[10px] ">
@@ -88,11 +116,12 @@ export default function Contacts() {
         <button
           type="submit"
           form="form1"
-          className="text-xl bg-[white] px-[20px] py-[10px] border border-black"
+          className="text-xl bg-[white] w-[200px] h-[50px] border border-black"
         >
-          Send message
+          {loading ? <Loader /> : 'Send message'}
         </button>
       </main>
+      <Modal displayModal={displayModal} msg={modalMsg} />
     </Layout>
   );
 }
