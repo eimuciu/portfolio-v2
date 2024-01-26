@@ -4,10 +4,15 @@ import Image from 'next/image';
 export default function About() {
   return (
     <Layout>
-      <main className="flex">
-        <section className="w-[50%]">
-          <div className="font-bold text-5xl mb-[30px]">About me</div>
-          <div className="text-xl">
+      <section className="hidden w-[100%] font-bold text-5xl mb-[30px] md:text-4xl md:block">
+        About me
+      </section>
+      <main className="flex md:flex-col">
+        <section className="w-[50%] md:w-[100%] md:order-last">
+          <section className="w-[100%] font-bold text-5xl mb-[30px] md:text-4xl md:hidden">
+            About me
+          </section>
+          <div className="text-xl md:text-lg md:mt-[30px]">
             Hi. I am a self taught fullstack web developer with a background in
             sales, customer service and recruitment who speaks JavaScript
             programming language. Most frontend and backend projects are built
@@ -22,7 +27,7 @@ export default function About() {
             music. Code with Passion, Dream with Vision.
           </div>
         </section>
-        <section className="w-[50%] h-[75vh] relative">
+        <section className="w-[50%] h-[75vh] relative md:w-[100%]">
           <Image
             src="/me.jpg"
             alt="Picture of the author"

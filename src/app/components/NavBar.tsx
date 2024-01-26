@@ -4,11 +4,11 @@ import Link from 'next/link';
 export default function NavBar(): ReactElement {
   return (
     <main>
-      <section className="flex flex-row py-[10px] px-[20px] bg-[#2B303A] text-white">
-        <div className="basis-[20%] text-4xl font-bold">
+      <section className="flex flex-row py-[10px] px-[20px] bg-[#2B303A] text-white md:flex-col">
+        <div className="basis-[20%] text-4xl font-bold md:basis-[100%] md:flex md:justify-center ">
           <Link href="/">eimis.codes</Link>
         </div>
-        <div className="basis-[80%] flex justify-center items-center text-xl">
+        <div className="basis-[80%] flex justify-center items-center text-xl md:basis-[100%] md:pt-[15px] md:pb-[5px] md:text-lg">
           <Link className="mx-[15px]" href="/">
             Home
           </Link>

@@ -49,15 +49,15 @@ export default function Contacts() {
   return (
     <Layout>
       <main>
-        <section className="font-bold text-5xl mb-[30px]">Contact me</section>
-        <div className="text-xl flex items-center mb-[5px]">
+        <section className="font-bold text-5xl mb-[30px] md:text-4xl">Contact me</section>
+        <div className="text-xl flex items-center mb-[5px] md:text-lg">
           <FaPhoneAlt className="inline-block me-[10px]" /> +370 607 28695
         </div>
-        <div className="text-xl flex items-center mb-[5px]">
+        <div className="text-xl flex items-center mb-[5px] md:text-lg">
           <FaEnvelope className="inline-block me-[10px]" />{' '}
           edanielevicius@gmail.com
         </div>
-        <div className="text-xl flex items-center mb-[5px]">
+        <div className="text-xl flex items-center mb-[5px] md:text-lg">
           <FaMapMarkerAlt className="inline-block me-[10px]" /> Kaunas
         </div>
         <section className="mt-[30px]">
@@ -106,7 +106,7 @@ export default function Contacts() {
         <button
           type="submit"
           form="form1"
-          className="text-xl bg-[white] w-[200px] h-[50px] border border-black"
+          className="text-xl bg-[white] w-[200px] h-[50px] border border-black md:text-lg"
         >
           {loading ? <Loader /> : 'Send message'}
         </button>
