@@ -1,7 +1,7 @@
 // import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
 import '../globals.css';
-import NavBar from './navbar';
+import NavBar from './NavBar';
 
 const inter = JetBrains_Mono({ subsets: ['latin'] });
 
