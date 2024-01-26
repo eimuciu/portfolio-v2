@@ -1,7 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
 import Link from 'next/link';
 
-export default function NavBar(): ReactElement {
+export default function NavBar() {
   return (
     <main>
       <section className="flex flex-row py-[10px] px-[20px] bg-[#2B303A] text-white md:flex-col">
