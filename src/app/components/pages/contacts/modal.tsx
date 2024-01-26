@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const StyledModal = styled.div`
-  display: ${(props: any) =>
-    props.displayModal ? 'block' : 'none'}; /* Hidden by default */
+const StyledModal = styled.div<{ displayModal: boolean }>`
+  display: ${({ displayModal }: { displayModal: boolean }) =>
+    displayModal ? 'block' : 'none'}; /* Hidden by default */
   /* display: block; */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -22,11 +22,16 @@ const ModalContent = styled.div`
   padding: 20px 0px;
 `;
 
-export function Modal({ displayModal, msg }: any) {
+interface Props {
+  displayModal: boolean;
+  message: string;
+}
+
+export default function Modal({ displayModal, message }: Props) {
   return (
     <StyledModal displayModal={displayModal}>
       <ModalContent>
-        <p className="text-[black] text-xl">{msg || 'Message'}</p>
+        <p className="text-[black] text-xl">{message}</p>
       </ModalContent>
     </StyledModal>
   );
