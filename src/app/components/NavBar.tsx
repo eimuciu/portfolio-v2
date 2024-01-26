@@ -8,7 +8,7 @@ export default function NavBar() {
         <div className="basis-[20%] text-4xl font-bold md:basis-[100%] md:flex md:justify-center ">
           <Link href="/">eimis.codes</Link>
         </div>
-        <div className="basis-[80%] gap-x-[30px] flex justify-center items-center text-xl md:basis-[100%] md:pt-[15px] md:pb-[5px] md:text-lg md:gap-x-[0px] md:justify-between	sm:text-base">
+        <div className="basis-[80%] gap-x-[30px] flex justify-center items-center text-xl md:basis-[100%] md:pt-[15px] md:pb-[5px] md:text-lg sm:gap-x-[0px] sm:justify-between	sm:text-base">
           <Link className="" href="/">
             Home
           </Link>
