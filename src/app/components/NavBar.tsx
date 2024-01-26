@@ -15,20 +15,20 @@ export default function NavBar() {
 
   return (
     <main>
-      <section className="flex flex-row py-[10px] px-[20px] bg-[#2B303A] text-white md:flex-col md:px-[10px] sm:relative">
-        <div className="basis-[20%] text-4xl font-bold md:basis-[100%] md:flex md:justify-center sm:relative">
+      <section className="flex flex-row py-[10px] px-[20px] bg-[#2B303A] text-white md:flex-col md:px-[10px] md:relative">
+        <div className="basis-[20%] text-4xl font-bold md:basis-[100%] md:flex md:justify-center md:relative">
           <Link onClick={closeMenu} href="/">
             eimis.codes
           </Link>
           <div
             onClick={openMenu}
-            className="hidden absolute right-0 top-[150%] text-[#2B303A] sm:block"
+            className="hidden absolute right-0 top-[150%] text-[#2B303A] md:block"
           >
             <MdOutlineRestaurantMenu />
           </div>
         </div>
         <div
-          className={`basis-[80%] gap-x-[30px] flex justify-center items-center text-xl md:basis-[100%] md:pt-[15px] md:pb-[15px] md:text-lg sm:gap-x-[0px] sm:justify-between	sm:text-base sm:absolute sm:bg-[#2B303A] sm:left-0 sm:top-[100%] sm:w-[100%] sm:gap-y-[15px] sm:z-10 sm:${
+          className={`basis-[80%] gap-x-[30px] flex justify-center items-center text-xl md:basis-[100%] md:pt-[15px] md:pb-[15px] md:text-lg	md:text-base md:absolute md:bg-[#2B303A] md:left-0 md:top-[100%] md:w-[100%] md:gap-y-[15px] md:z-10 md:${
             showMenu ? 'flex-col' : 'hidden'
           }`}
         >
