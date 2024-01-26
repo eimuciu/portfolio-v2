@@ -13,18 +13,12 @@ const inter = JetBrains_Mono({ subsets: ['latin'] });
 //   },
 // };
 
-export default function Layout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function Layout({ children }: any) {
   return (
     <>
       <main className={inter.className + ' min-h-screen'}>
         <NavBar />
-        <section className='py-[50px] w-[85%] m-auto'>
-        {children}
-        </section>
+        <section className="py-[50px] w-[85%] m-auto">{children}</section>
       </main>
     </>
   );
