@@ -8,20 +8,20 @@ export default function NavBar() {
         <div className="basis-[20%] text-4xl font-bold md:basis-[100%] md:flex md:justify-center ">
           <Link href="/">eimis.codes</Link>
         </div>
-        <div className="basis-[80%] flex justify-center items-center text-xl md:basis-[100%] md:pt-[15px] md:pb-[5px] md:text-lg">
-          <Link className="mx-[15px]" href="/">
+        <div className="basis-[80%] gap-x-[30px] flex justify-center items-center text-xl md:basis-[100%] md:pt-[15px] md:pb-[5px] md:text-lg md:gap-x-[10px]">
+          <Link className="" href="/">
             Home
           </Link>
-          <Link className="mx-[15px]" href="/about" prefetch={false}>
+          <Link className="" href="/about" prefetch={false}>
             About
           </Link>
-          <Link className="mx-[15px]" href="/stack" prefetch={false}>
+          <Link className="" href="/stack" prefetch={false}>
             Stack
           </Link>
-          <Link className="mx-[15px]" href="/projects" prefetch={false}>
+          <Link className="" href="/projects" prefetch={false}>
             Projects
           </Link>
-          <Link className="mx-[15px]" href="/contacts" prefetch={false}>
+          <Link className="" href="/contacts" prefetch={false}>
             Contacts
           </Link>
         </div>
