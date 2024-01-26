@@ -4,6 +4,7 @@ import { projectList } from './data';
 import Image from 'next/image';
 import { BsCode, BsGlobe } from 'react-icons/bs';
 import Link from 'next/link';
+import { FaArrowCircleRight } from 'react-icons/fa';
 
 export default function ProjectsPage() {
   const [activeProject, setActiveProject] = useState({
@@ -24,9 +25,9 @@ export default function ProjectsPage() {
           onClick={() => {
             setOpenProjectList(true);
           }}
-          className="cursor-pointer text-3xl font-bold hidden md:block md:fixed md:left-[2px] md:top-[115px] text-[#A50104]"
+          className="cursor-pointer text-3xl font-bold hidden md:block md:fixed md:left-[0px] md:top-[65px] text-[#A50104]"
         >
-          {'>'}
+          <FaArrowCircleRight className='w-[20px] h-[20px]'/>
         </div>
         <section
           className={`w-[30%] md:${
