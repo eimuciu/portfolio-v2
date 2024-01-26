@@ -20,7 +20,7 @@ export default function Layout({
 }>) {
   return (
     <>
-      <main className={inter.className + ' h-svh'}>
+      <main className={inter.className + ' min-h-screen'}>
         <NavBar />
         <section className='py-[50px] w-[85%] m-auto'>
         {children}
