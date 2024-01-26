@@ -8,11 +8,11 @@ export default function About() {
         About me
       </section>
       <main className="flex md:flex-col">
-        <section className="w-[50%] md:w-[100%] md:order-last">
+        <section className="w-[50%] md:w-[100%]">
           <section className="w-[100%] font-bold text-5xl mb-[30px] md:text-4xl md:hidden">
             About me
           </section>
-          <div className="text-xl md:text-lg md:mt-[30px]">
+          <div className="text-xl md:text-lg">
             Hi. I am a self taught fullstack web developer with a background in
             sales, customer service and recruitment who speaks JavaScript
             programming language. Most frontend and backend projects are built
