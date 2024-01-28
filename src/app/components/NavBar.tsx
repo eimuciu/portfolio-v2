@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
@@ -40,26 +42,16 @@ export default function NavBar() {
           <Link onClick={closeMenu} className="" href="/">
             Home
           </Link>
-          <Link onClick={closeMenu} className="" href="/about" prefetch={false}>
+          <Link onClick={closeMenu} className="" href="/about">
             About
           </Link>
-          <Link onClick={closeMenu} className="" href="/stack" prefetch={false}>
+          <Link onClick={closeMenu} className="" href="/stack">
             Stack
           </Link>
-          <Link
-            onClick={closeMenu}
-            className=""
-            href="/projects"
-            prefetch={false}
-          >
+          <Link onClick={closeMenu} className="" href="/projects">
             Projects
           </Link>
-          <Link
-            onClick={closeMenu}
-            className=""
-            href="/contacts"
-            prefetch={false}
-          >
+          <Link onClick={closeMenu} className="" href="/contacts">
             Contacts
           </Link>
         </div>

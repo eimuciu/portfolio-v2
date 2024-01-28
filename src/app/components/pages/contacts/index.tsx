@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react';
 import Layout from '@/app/components/layout';
 import { FaPhoneAlt, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';

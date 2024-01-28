@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import Layout from '@/app/components/layout';
 import { projectList } from './data';
@@ -27,7 +29,7 @@ export default function ProjectsPage() {
           }}
           className="cursor-pointer text-3xl font-bold hidden md:block md:fixed md:left-[0px] md:top-[65px] text-[#A50104]"
         >
-          <FaArrowCircleRight className='w-[20px] h-[20px]'/>
+          <FaArrowCircleRight className="w-[20px] h-[20px]" />
         </div>
         <section
           className={`w-[30%] md:${
