@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Layout from '@/app/components/layout';
 import { projectList } from './data';
 import Image from 'next/image';
 import { BsCode, BsGlobe } from 'react-icons/bs';
 import Link from 'next/link';
 import { FaArrowCircleRight } from 'react-icons/fa';
+import { useOutsideClick } from '@/app/hooks/useOutsideClick';
 
 export default function ProjectsPage() {
   const [activeProject, setActiveProject] = useState({
@@ -14,11 +15,14 @@ export default function ProjectsPage() {
     position: 0,
   });
   const [openProjectList, setOpenProjectList] = useState(false);
+  const refEl = useRef<HTMLElement>(null);
 
   const handleOnProjectClick = (groupName: string, pos: number) => {
     setActiveProject((prev) => ({ ...prev, name: groupName, position: pos }));
     setOpenProjectList(false);
   };
+
+  useOutsideClick(refEl, () => {setOpenProjectList(false)}, openProjectList)
 
   return (
     <Layout>
@@ -32,6 +36,7 @@ export default function ProjectsPage() {
           <FaArrowCircleRight className="w-[20px] h-[20px]" />
         </div>
         <section
+          ref={refEl}
           className={`w-[30%] md:${
             openProjectList ? 'fixed' : 'hidden'
           } md:top-0 md:left-0 md:h-[100%] md:z-10 md:bg-[#dee2e2] md:w-[75%]`}

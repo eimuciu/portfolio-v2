@@ -1,24 +1,28 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
+import { useOutsideClick } from '../hooks/useOutsideClick';
 
 export default function NavBar() {
   const [showMenu, setShowMenu] = useState(false);
+  const refEl = useRef<HTMLElement>(null);
 
-  const closeMenu = () => {
+  useOutsideClick(refEl, closeMenu, showMenu);
+
+  function closeMenu() {
     setShowMenu(false);
-  };
+  }
 
-  const openMenu = () => {
-    setShowMenu(true);
-  };
+  function toggleMenu() {
+    setShowMenu((prev) => !prev);
+  }
 
   return (
     <main>
       <div
-        onClick={openMenu}
+        onClick={toggleMenu}
         className="hidden fixed right-[25px] z-10 bottom-[25px] text-[#2B303A] md:block"
       >
         <MdOutlineRestaurantMenu className="w-[50px] h-[50px]" />
@@ -28,7 +32,10 @@ export default function NavBar() {
           eimis.codes
         </Link>
       </div>
-      <section className="flex fixed flex-row top-0 w-[100%] z-10 py-[10px] px-[20px] bg-[#2B303A] text-white md:flex-col md:px-[10px]">
+      <section
+        ref={refEl}
+        className="flex fixed flex-row top-0 w-[100%] z-10 py-[10px] px-[20px] bg-[#2B303A] text-white md:flex-col md:px-[10px]"
+      >
         <div className="basis-[20%] text-4xl font-bold md:basis-[100%] md:flex md:justify-center md:relative">
           <Link onClick={closeMenu} href="/">
             eimis.codes
