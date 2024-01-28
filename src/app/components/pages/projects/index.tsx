@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import Layout from '@/app/components/layout';
-import { projectList } from './data';
+import { projectList, projects } from './data';
 import Image from 'next/image';
 import { BsCode, BsGlobe } from 'react-icons/bs';
 import Link from 'next/link';
@@ -10,19 +10,26 @@ import { FaArrowCircleRight } from 'react-icons/fa';
 import { useOutsideClick } from '@/app/hooks/useOutsideClick';
 
 export default function ProjectsPage() {
-  const [activeProject, setActiveProject] = useState({
-    name: 'Group Chat',
-    position: 0,
-  });
+  // const [activeProject, setActiveProject] = useState({
+  //   name: 'Group Chat',
+  //   position: 0,
+  // });
+  const [activeProject, setActiveProject] = useState<string>('Group Chat');
   const [openProjectList, setOpenProjectList] = useState(false);
   const refEl = useRef<HTMLElement>(null);
 
-  const handleOnProjectClick = (groupName: string, pos: number) => {
-    setActiveProject((prev) => ({ ...prev, name: groupName, position: pos }));
+  const handleOnProjectClick = (groupName: string) => {
+    setActiveProject(groupName);
     setOpenProjectList(false);
   };
 
-  useOutsideClick(refEl, () => {setOpenProjectList(false)}, openProjectList)
+  useOutsideClick(
+    refEl,
+    () => {
+      setOpenProjectList(false);
+    },
+    openProjectList,
+  );
 
   return (
     <Layout>
@@ -41,50 +48,52 @@ export default function ProjectsPage() {
             openProjectList ? 'fixed' : 'hidden'
           } md:top-0 md:left-0 md:h-[100%] md:z-10 md:bg-[#dee2e2] md:w-[75%]`}
         >
-          {projectList.map((x, i) => (
+          {Object.keys(projects).map((x) => (
             <div
-              key={i}
+              key={x}
               onClick={() => {
-                handleOnProjectClick(x.header, i);
+                handleOnProjectClick(x);
               }}
               className={
-                activeProject.name == x.header
+                activeProject == x
                   ? 'bg-[#A50104] text-white cursor-pointer text-xl'
                   : 'cursor-pointer text-xl'
               }
             >
-              {x.header}
+              {x}
             </div>
           ))}
         </section>
         <section className="w-[70%] h-[75vh] md:w-[100%]">
           <div className="w-[50%] h-[50%] relative m-auto mb-[30px] md:w-[100%]">
             <Image
-              src={projectList[activeProject.position].imageLink}
-              alt={`Picture of the ${
-                projectList[activeProject.position].header
-              }`}
+              src={projects[activeProject as keyof typeof projects].imageLink}
+              alt={`Picture of the ${activeProject}`}
               fill
             />
           </div>
           <div className="text-xl md:text-lg">
-            {projectList[activeProject.position].description}
+            {projects[activeProject as keyof typeof projects].description}
           </div>
           <div className="flex items-center mt-[20px] mb-[5px] text-[#2B303A] text-xl md:text-lg">
             <BsCode className="w-[20px] h-[20px] me-[10px] md:w-[18px] md:h-[18px]" />
             <Link
-              href={`${projectList[activeProject.position].sourceCode}`}
+              href={`${
+                projects[activeProject as keyof typeof projects].sourceCode
+              }`}
               target="_blank"
               rel="noreferrer"
             >
               Source code
             </Link>
           </div>
-          {projectList[activeProject.position].liveVersion && (
+          {projects[activeProject as keyof typeof projects].liveVersion && (
             <div className="flex items-center text-[#2B303A] text-xl md:text-lg">
               <BsGlobe className="w-[17px] h-[17px] me-[12px] md:w-[15px] md:h-[15px]" />
               <Link
-                href={`${projectList[activeProject.position].liveVersion}`}
+                href={`${
+                  projects[activeProject as keyof typeof projects].liveVersion
+                }`}
                 target="_blank"
                 rel="noreferrer"
               >
