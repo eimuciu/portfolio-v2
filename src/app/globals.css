@@ -36,7 +36,7 @@ body {
 body::after {
   content: '';
   position: absolute;
-  background-image: url('../../public/images/triangles2.jpg');
+  background-image: url('../../public/images/triangles.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
