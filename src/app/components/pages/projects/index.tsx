@@ -14,7 +14,7 @@ export default function ProjectsPage() {
   //   name: 'Group Chat',
   //   position: 0,
   // });
-  const [activeProject, setActiveProject] = useState<string>('Group Chat');
+  const [activeProject, setActiveProject] = useState<string>('Cash Tracker v2.0');
   const [openProjectList, setOpenProjectList] = useState(false);
   const refEl = useRef<HTMLElement>(null);
 
