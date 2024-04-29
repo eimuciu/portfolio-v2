@@ -109,6 +109,13 @@ const list = projectList.reduce((prev, curr) => {
 }, {});
 
 export const projects = {
+  'Cash Tracker v2.0': {
+    description:
+      'Track your finance application built with React.js. It is a mobile friendly app with implementation of Auth0, TypeScript, Formik. Backend relies on Express.js and Mongoose.',
+    sourceCode: 'https://github.com/eimuciu/cash-tracker',
+    liveVersion: 'https://cashrer.vercel.app/',
+    imageLink: '/images/cashrerSnippet.jfif',
+  },
   'Group Chat': {
     description:
       'Old fashioned group chat that connects people of the same interests. I made this project with React.js and ASP.NET. It was a good feel of SignalR, Entity Framework although it is not a very first touch of this sort of technology.',
